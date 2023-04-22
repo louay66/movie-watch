@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Container } from "react-bootstrap";
+import NevBar from "./components/NevBar";
+import MovesList from "./components/MovesList";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MovieDetials from "./components/MovieDetials";
+/* import { useDispatch } from "react-redux";
+import { getAllMovies } from "./redux/action/MovieAction"; */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font color-body">
+      <NevBar />
+      <Container>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MovesList />} />
+            <Route path="/movie/:id" element={<MovieDetials />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
     </div>
   );
 }
